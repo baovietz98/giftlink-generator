@@ -4,6 +4,7 @@ import coverImage from '@/assets/cover.jpg';
 import insideImage from '@/assets/inside.png';
 import { Confetti } from './Confetti';
 import { Sparkles } from './Sparkles';
+import { EdgeGlow } from './EdgeGlow';
 
 interface BirthdayCardProps {
   recipientName: string;
@@ -21,8 +22,35 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-light to-background" />
+      {/* Enhanced background with animated gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(222,47%,8%)] via-[hsl(222,47%,5%)] to-[hsl(230,50%,3%)]" />
+      
+      {/* Radial glow effects */}
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-30"
+        style={{
+          background: 'radial-gradient(circle, hsl(43, 74%, 40%) 0%, transparent 60%)',
+          filter: 'blur(80px)',
+        }}
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.35, 0.2],
+        }}
+        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-20"
+        style={{
+          background: 'radial-gradient(circle, hsl(220, 60%, 40%) 0%, transparent 60%)',
+          filter: 'blur(70px)',
+        }}
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+      />
+      
       <Sparkles />
       
       {showConfetti && <Confetti />}
@@ -42,12 +70,15 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
               className="relative cursor-pointer group"
               onClick={handleOpen}
             >
-              {/* Card cover */}
-              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gold/30">
+              {/* Card cover with edge glow effect */}
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gold/40">
+                {/* Edge glow effect */}
+                <EdgeGlow />
+                
                 <img 
                   src={coverImage} 
                   alt="Bìa thiệp sinh nhật"
-                  className="w-full h-auto"
+                  className="w-full h-auto relative z-0"
                 />
                 
                 {/* Glowing tap effect overlay */}
