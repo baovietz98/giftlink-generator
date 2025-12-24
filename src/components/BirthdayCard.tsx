@@ -120,19 +120,18 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
                   className="w-full h-auto"
                 />
                 
-                {/* Name overlay on inside card - positioned next to "Sức Khỏe" */}
+                {/* Name overlay - centered below "Birthday" and above red line */}
                 <motion.div
-                  className="absolute bottom-[26%] right-[6%] md:right-[8%]"
+                  className="absolute top-[52%] right-[12%] md:right-[15%]"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
                 >
                   <p 
-                    className="font-script text-2xl sm:text-3xl md:text-4xl"
+                    className="font-script text-2xl sm:text-3xl md:text-4xl text-center"
                     style={{ 
                       color: '#b8860b',
                       textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
-                      fontStyle: 'italic'
                     }}
                   >
                     {recipientName}
