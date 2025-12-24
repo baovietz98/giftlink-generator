@@ -43,60 +43,70 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
               onClick={handleOpen}
             >
               {/* Card cover */}
-              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gold/30 animate-pulse-glow">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-gold/30">
                 <img 
                   src={coverImage} 
                   alt="Bìa thiệp sinh nhật"
                   className="w-full h-auto"
                 />
                 
-                {/* Recipient name overlay */}
+                {/* Glowing tap effect overlay */}
                 <motion.div 
-                  className="absolute inset-0 flex flex-col items-center justify-center bg-background/20 backdrop-blur-[2px]"
+                  className="absolute inset-0 pointer-events-none"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.3 }}
                 >
-                  <motion.p
-                    className="text-gold-light text-lg mb-2"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.7 }}
+                  {/* Pulsing glow border effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-xl"
+                    animate={{
+                      boxShadow: [
+                        'inset 0 0 30px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2)',
+                        'inset 0 0 50px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.4)',
+                        'inset 0 0 30px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2)',
+                      ]
+                    }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Tap icon in center */}
+                  <motion.div
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
                   >
-                    Gửi tới
-                  </motion.p>
-                  <motion.h2
-                    className="font-script text-4xl md:text-5xl text-gold animate-float text-center px-4"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.9 }}
-                    style={{ textShadow: '0 0 20px hsl(43, 74%, 53%)' }}
-                  >
-                    {recipientName}
-                  </motion.h2>
+                    <motion.div
+                      className="bg-background/60 backdrop-blur-sm rounded-full p-4 border border-gold/50"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    >
+                      <svg 
+                        className="w-10 h-10 text-gold" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                      </svg>
+                    </motion.div>
+                  </motion.div>
                 </motion.div>
 
-                {/* Click hint */}
+                {/* Click hint at bottom */}
                 <motion.div 
                   className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 1.2 }}
+                  transition={{ delay: 1 }}
                 >
                   <motion.div
-                    className="flex flex-col items-center gap-2"
+                    className="flex flex-col items-center gap-2 bg-background/60 backdrop-blur-sm px-4 py-2 rounded-full border border-gold/30"
                     animate={{ y: [0, 5, 0] }}
                     transition={{ repeat: Infinity, duration: 1.5 }}
                   >
                     <span className="text-gold text-sm font-medium">Nhấn để mở thiệp</span>
-                    <svg 
-                      className="w-6 h-6 text-gold" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
                   </motion.div>
                 </motion.div>
               </div>
