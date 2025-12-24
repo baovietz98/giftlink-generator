@@ -73,7 +73,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        script: ["Great Vibes", "cursive"],
+        script: ["Dancing Script", "cursive"],
         display: ["Playfair Display", "serif"],
         sans: ["Montserrat", "sans-serif"],
       },

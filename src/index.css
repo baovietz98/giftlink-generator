@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -101,7 +101,7 @@
 
 @layer components {
   .font-script {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Dancing Script', cursive;
   }
 
   .font-display {
