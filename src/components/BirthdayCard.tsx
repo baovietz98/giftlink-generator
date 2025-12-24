@@ -169,7 +169,7 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
                   transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
                 >
                   <p
-                    className="font-script text-sm sm:text-base md:text-lg text-left"
+                    className="font-display text-sm sm:text-base md:text-lg text-left font-semibold italic"
                     style={{
                       color: '#0066b3',
                       textShadow: '1px 1px 2px rgba(0,0,0,0.12)',
