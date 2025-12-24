@@ -122,7 +122,7 @@ export const BirthdayCard = ({ recipientName }: BirthdayCardProps) => {
                 
                 {/* Name overlay - centered below "Birthday" and above red line */}
                 <motion.div
-                  className="absolute right-[10%] sm:right-[12%] md:right-[14%] top-[66%] w-[48%] sm:w-[46%] md:w-[44%] flex justify-start"
+                  className="absolute right-[6%] sm:right-[8%] md:right-[10%] top-[68%] w-[48%] sm:w-[46%] md:w-[44%] flex justify-start"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
